@@ -1,0 +1,9 @@
+body {
+    background-color: #f4f6f9;
+}
+
+.naslov {
+    color: darkblue;
+    font-weight: bold;
+    text-align: center;
+}

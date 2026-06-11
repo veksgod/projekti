@@ -1,0 +1,39 @@
+@page
+@model bolnica_razor_pages.Pages.Pacijenti.FiltriranjeModel
+
+<h1>Filtriranje pacijenata</h1>
+
+<form method="get">
+
+    <div class="mb-3">
+        <label>Prezime:</label>
+        <input asp-for="Prezime" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Pretraži
+    </button>
+
+</form>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Broj kartona</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var p in Model.Pacijenti)
+    {
+        <tr>
+            <td>@p.Ime</td>
+            <td>@p.Prezime</td>
+            <td>@p.BrojKartona</td>
+        </tr>
+    }
+    </tbody>
+</table>

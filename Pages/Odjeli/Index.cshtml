@@ -2,14 +2,17 @@
 @model bolnica_razor_pages.Pages.Odjeli.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Popis odjela";
 }
 
-<h1>Index</h1>
+<h1>Popis odjela</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-success">
+        Dodaj novi odjel
+    </a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -25,11 +28,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Odjel[0].PrimariusIme)
             </th>
-            <th></th>
+            <th>Akcije</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Odjel) {
+@foreach (var item in Model.Odjel)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Naziv)
@@ -44,8 +48,13 @@
                 @Html.DisplayFor(modelItem => item.PrimariusIme)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">
+                    Uredi
+                </a>
+                |
+                <a asp-page="./Delete" asp-route-id="@item.Id">
+                    Obriši
+                </a>
             </td>
         </tr>
 }

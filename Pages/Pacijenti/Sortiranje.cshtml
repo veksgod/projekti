@@ -1,0 +1,24 @@
+@page
+@model bolnica_razor_pages.Pages.Pacijenti.SortiranjeModel
+
+<h1>Pacijenti sortirani po prezimenu</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Broj kartona</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var p in Model.Pacijenti)
+    {
+        <tr>
+            <td>@p.Ime</td>
+            <td>@p.Prezime</td>
+            <td>@p.BrojKartona</td>
+        </tr>
+    }
+    </tbody>
+</table>

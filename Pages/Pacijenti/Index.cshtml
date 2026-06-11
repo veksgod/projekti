@@ -2,80 +2,53 @@
 @model bolnica_razor_pages.Pages.Pacijenti.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Popis pacijenata";
 }
 
-<h1>Index</h1>
+<h1>Popis pacijenata</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-success">
+        Dodaj novog pacijenta
+    </a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Ime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Prezime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].DatumRodjenja)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Spol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Adresa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Telefon)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].BrojKartona)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pacijent[0].Odjel)
-            </th>
-            <th></th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Datum rođenja</th>
+            <th>Spol</th>
+            <th>Adresa</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Broj kartona</th>
+            <th>Odjel</th>
+            <th>Akcije</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Pacijent) {
+@foreach (var item in Model.Pacijent)
+{
         <tr>
+            <td>@item.Ime</td>
+            <td>@item.Prezime</td>
+            <td>@item.DatumRodjenja.ToShortDateString()</td>
+            <td>@item.Spol</td>
+            <td>@item.Adresa</td>
+            <td>@item.Telefon</td>
+            <td>@item.Email</td>
+            <td>@item.BrojKartona</td>
+            <td>@item.Odjel?.Naziv</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prezime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatumRodjenja)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Spol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Adresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrojKartona)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Odjel.Naziv)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">
+                    Uredi
+                </a>
+                |
+                <a asp-page="./Delete" asp-route-id="@item.Id">
+                    Obriši
+                </a>
             </td>
         </tr>
 }

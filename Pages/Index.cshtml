@@ -1,9 +1,22 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Početna";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bolnica</h1>
-</div>
+    <h1 class="naslov">Bolnički informacijski sustav</h1>
+
+    <p>
+        Dobrodošli u aplikaciju za upravljanje pacijentima i odjelima.
+    </p>
+
+    <button class="btn btn-success"
+        onclick="prikaziPoruku()">
+    Klikni me
+</button>
+
+    <img src="~/images/bolnica.jpg"
+         width="500"
+         alt="Bolnica" />
+</div>  
