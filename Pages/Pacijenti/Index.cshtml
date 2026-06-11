@@ -1,0 +1,37 @@
+@page
+@model bolnica_razor_pages.Pages.Pacijenti.IndexModel
+
+<h1>Pacijenti</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">
+        Dodaj pacijenta
+    </a>
+</p>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Broj kartona</th>
+            <th>Odjel</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    @foreach (var item in Model.Pacijenti)
+    {
+        <tr>
+            <td>@item.Ime</td>
+            <td>@item.Prezime</td>
+            <td>@item.BrojKartona</td>
+            <td>@item.Odjel?.Naziv</td>
+        </tr>
+    }
+
+    </tbody>
+
+</table>
