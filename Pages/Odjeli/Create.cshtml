@@ -1,0 +1,50 @@
+@page
+@model bolnica_razor_pages.Pages.Odjeli.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Odjel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Odjel.Naziv" class="control-label"></label>
+                <input asp-for="Odjel.Naziv" class="form-control" />
+                <span asp-validation-for="Odjel.Naziv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Odjel.Opis" class="control-label"></label>
+                <input asp-for="Odjel.Opis" class="form-control" />
+                <span asp-validation-for="Odjel.Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Odjel.BrojPacijenata" class="control-label"></label>
+                <input asp-for="Odjel.BrojPacijenata" class="form-control" />
+                <span asp-validation-for="Odjel.BrojPacijenata" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Odjel.PrimariusIme" class="control-label"></label>
+                <input asp-for="Odjel.PrimariusIme" class="form-control" />
+                <span asp-validation-for="Odjel.PrimariusIme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

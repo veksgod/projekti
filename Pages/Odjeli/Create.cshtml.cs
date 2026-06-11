@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using bolnica_razor_pages.Data;
 using bolnica_razor_pages.Models;
 
-namespace bolnica_razor_pages.Pages.Pacijenti
+namespace bolnica_razor_pages.Pages.Odjeli
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace bolnica_razor_pages.Pages.Pacijenti
 
         public IActionResult OnGet()
         {
-        ViewData["OdjelId"] = new SelectList(_context.Odjeli, "Id", "Naziv");
             return Page();
         }
 
         [BindProperty]
-        public Pacijent Pacijent { get; set; } = default!;
+        public Odjel Odjel { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +35,7 @@ namespace bolnica_razor_pages.Pages.Pacijenti
                 return Page();
             }
 
-            _context.Pacijenti.Add(Pacijent);
+            _context.Odjeli.Add(Odjel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

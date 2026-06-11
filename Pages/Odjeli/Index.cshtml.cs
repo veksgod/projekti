@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using bolnica_razor_pages.Data;
 using bolnica_razor_pages.Models;
 
-namespace bolnica_razor_pages.Pages.Pacijenti
+namespace bolnica_razor_pages.Pages.Odjeli
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,11 @@ namespace bolnica_razor_pages.Pages.Pacijenti
             _context = context;
         }
 
-        public IList<Pacijent> Pacijent { get;set; } = default!;
+        public IList<Odjel> Odjel { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Pacijent = await _context.Pacijenti
-                .Include(p => p.Odjel).ToListAsync();
+            Odjel = await _context.Odjeli.ToListAsync();
         }
     }
 }

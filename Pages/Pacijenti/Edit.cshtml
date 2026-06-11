@@ -1,11 +1,11 @@
 @page
-@model bolnica_razor_pages.Pages.Pacijenti.CreateModel
+@model bolnica_razor_pages.Pages.Pacijenti.EditModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>Pacijent</h4>
 <hr />
@@ -13,6 +13,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Pacijent.Id" />
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Pacijent.Ime" class="control-label"></label>
@@ -57,17 +58,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="Pacijent.OdjelId" class="control-label"></label>
-                <select asp-for="Pacijent.OdjelId" class ="form-control" asp-items="ViewBag.OdjelId"></select>
+                <select asp-for="Pacijent.OdjelId" class="form-control" asp-items="ViewBag.OdjelId"></select>
+                <span asp-validation-for="Pacijent.OdjelId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
